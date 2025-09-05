@@ -33,7 +33,7 @@ export default function HeroVideo() {
       <div className="absolute inset-0 bg-black/40" />
 
       {/* İçerik */}
-      <div className="relative z-10 flex h-full flex-col items-center justify-center text-center">
+      <div className="relative z-10 flex h-full flex-col items-center justify-center text-center px-6">
         {/* Logo */}
         <Image
           src="/images/logos/logo.png"
@@ -49,10 +49,16 @@ export default function HeroVideo() {
         >
           Gamze Yavuz Beauty
         </h1>
+
+        {/* Slogan */}
+        <p className="mt-4 max-w-2xl text-base md:text-lg text-white/90 leading-relaxed">
+          Yenilenmek ve yeni bir sen için birlikte parlamaya hazır mısın?
+        </p>
+
         {/* Franchise butonu */}
         <a
           href="/franchise"
-          className="mt-12 inline-flex items-center rounded-xl bg-amber-400 px-6 py-3 text-base font-semibold text-neutral-900 shadow-lg hover:bg-white transition"
+          className="mt-10 inline-flex items-center rounded-xl bg-amber-400 px-6 py-3 text-base font-semibold text-neutral-900 shadow-lg hover:bg-white transition"
         >
           Franchise için tıklayın
         </a>
@@ -91,27 +97,27 @@ export default function HeroVideo() {
 
       {/* Alt yön oku */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-white/80 animate-bounce">
-  <button
-    onClick={() => {
-      const section = document.querySelector("#hakkimizda");
-      section?.scrollIntoView({ behavior: "smooth" });
-    }}
-    aria-label="Aşağı kaydır"
-  >
-    <svg
-      width="30"
-      height="30"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M6 9l6 6 6-6" />
-    </svg>
-  </button>
-</div>
+        <button
+          onClick={() => {
+            const section = document.querySelector("#hakkimizda");
+            section?.scrollIntoView({ behavior: "smooth" });
+          }}
+          aria-label="Aşağı kaydır"
+        >
+          <svg
+            width="30"
+            height="30"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </button>
+      </div>
     </section>
   );
 }

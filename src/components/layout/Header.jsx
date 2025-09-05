@@ -17,7 +17,6 @@ const nav = [
     items: [
       { label: "Hakkımızda", href: "/hakkimizda" },
       { label: "Misyon & Vizyon", href: "/misyon-vizyon" },
-      { label: "Ekibimiz", href: "/ekip" },
     ],
   },
   {
@@ -30,14 +29,14 @@ const nav = [
       })),
     ],
   },
-  {
-    label: "CİHAZLAR",
-    items: [
-      { label: "Lazer Sistemleri", href: "/cihazlar/lazer" },
-      { label: "Cilt Analiz", href: "/cihazlar/cilt-analiz" },
-      { label: "Radyofrekans", href: "/cihazlar/rf" },
-    ],
-  },
+//   {
+//     label: "CİHAZLAR",
+//     items: [
+//       { label: "Lazer Sistemleri", href: "/cihazlar/lazer" },
+//       { label: "Cilt Analiz", href: "/cihazlar/cilt-analiz" },
+//       { label: "Radyofrekans", href: "/cihazlar/rf" },
+//     ],
+//   },
   { label: "FRANCHISE", href: "/franchise" },
   { label: "İLETİŞİM", href: "/iletisim" },
 ];

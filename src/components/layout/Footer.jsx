@@ -45,7 +45,6 @@ export default function Footer({
               <ul className="mt-4 space-y-2 text-sm text-neutral-400">
                 <li><Link href="/hakkimizda" className="hover:text-neutral-200 transition">Hakkımızda</Link></li>
                 <li><Link href="/misyon-vizyon" className="hover:text-neutral-200 transition">Misyon & Vizyon</Link></li>
-                <li><Link href="/ekip" className="hover:text-neutral-200 transition">Ekibimiz</Link></li>
                 <li><Link href="/franchise" className="hover:text-neutral-200 transition">Franchise</Link></li>
               </ul>
             </div>
