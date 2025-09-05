@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Cinzel } from "next/font/google";
-
+import { services } from "@/data/services";
 
 const cinzel = Cinzel({
   subsets: ["latin"],
@@ -23,9 +23,11 @@ const nav = [
   {
     label: "HİZMETLER",
     items: [
-      { label: "Cilt Bakımı", href: "/hizmetler/cilt-bakimi" },
-      { label: "Lazer Epilasyon", href: "/hizmetler/lazer-epilasyon" },
-      { label: "Bölgesel İncelme", href: "/hizmetler/bolgesel-incelme" },
+      { label: "Tüm Hizmetler", href: "/hizmetler" },
+      ...services.map((s) => ({
+        label: s.title,
+        href: `/hizmetler/${s.slug}`,
+      })),
     ],
   },
   {
@@ -74,7 +76,7 @@ export default function Header() {
           <div className={`leading-tight flex flex-col items-center ${cinzel.className}`}>
             <div className={`font-semibold tracking-wide text-xl ${baseText}`}>Gamze Yavuz</div>
             {/* Beauty tam ortada ve bir alt satırda */}
-            <div className={`${baseText} opacity-90 font-medium text-m -mt-0.5 text-center`}>Beauty</div>
+            <div className={`${baseText} opacity-90 font-semibold text-m -mt-0.5 text-center`}>Beauty</div>
           </div>
         </Link>
 
