@@ -6,11 +6,13 @@ export const services = [
     contentImage: "/images/anasayfa/about.jpg",
     intro: "Farklı cilt tiplerine uygun dalga boylarıyla, konforlu ve hızlı lazer epilasyon deneyimi.",
     content: [
-      "Ön görüşmede cilt ve kıl yapısı analiz edilerek kişiye özel seans planı oluşturulur.",
-      "İleri soğutma sistemleri sayesinde işlem sırasında rahatsızlık minimum seviyededir.",
-      "Düzenli seans takibi ve doğru aralıklar ile kalıcı ve homojen sonuç hedeflenir.",
-      "Hassas bölgeler için düşük enerji, geniş alanlar için verimli tarama protokolleri kullanılır.",
-      "İşlem sonrası cilt bariyerini koruyan bakım önerileri ve güneş koruması planlanır."
+    "Kamera görüşlü sistem sayesinde işlem alanı hassas şekilde izlenir ve hedeflenen bölgelere tam nüfuz sağlaması sağlanır.",
+    "Yapay zeka destekli analiz sonrası uzmanlarımız kişiye özel parametrelerle seans planı oluşturur.",
+    "Ice-cooling (buz başlık) teknolojisiyle cilt yüzeyi soğutularak ağrı ve hassasiyet minimuma indirilir.",
+    "İleri soğutma sistemleri sayesinde işlem sırasında rahatsızlık minimum seviyededir.",
+    "Düzenli seans takibi ve doğru aralıklar ile kalıcı ve homojen sonuç hedeflenir.",
+    "Hassas bölgeler için düşük enerji, geniş alanlar için verimli tarama protokolleri kullanılır.",
+    "İşlem sonrası cilt bariyerini koruyan bakım önerileri ve güneş koruması planlanır."
     ],
   },
   {
@@ -20,11 +22,12 @@ export const services = [
     contentImage: "/images/anasayfa/about.jpg",
     intro: "Sıkılaşma ve form kazanımı için bölgeye özel teknoloji ve protokoller.",
     content: [
-      "Hedef bölge ölçümleri yapılarak kişiye özel uygulama programı planlanır.",
-      "Yağ hücrelerini hedefleyen cihazlar ve manuel tekniklerle kombine protokoller uygulanır.",
-      "Düzenli seanslarla elastikiyet artışı ve çevresel incelme desteklenir.",
-      "Ev rutini için beslenme/aktivite önerileriyle sonuçların kalıcılığı artırılır.",
-      "Her seans sonunda ölçüm ve fotoğrafla ilerleme şeffaf olarak takip edilir."
+    "Ön görüşmede bölgesel ölçümler yapılarak kişiye özel uygulama programı planlanır.",
+    "Yeni nesil G-Shape cihazı ile aynı anda 9 farklı bölge 10 farklı modda çalıştırılarak kapsamlı incelme sağlanır.",
+    "Yağ hücrelerini hedefleyen cihaz teknolojileri ve manuel teknikler kombine edilerek etkili protokoller uygulanır.",
+    "Düzenli seanslarla elastikiyet artışı, sıkılaşma ve çevresel incelme desteklenir.",
+    "Ev rutini için beslenme ve aktivite önerileriyle sonuçların kalıcılığı artırılır.",
+    "Her seans sonunda ölçüm ve fotoğrafla ilerleme şeffaf şekilde takip edilir."
     ],
   },
   {
@@ -62,11 +65,12 @@ export const services = [
     contentImage: "/images/anasayfa/about.jpg",
     intro: "Cilt tipinize özel derin temizlik, yenileme ve bariyer güçlendirme.",
     content: [
-      "Temizleme, peeling ve komedon yönetimi aşamalarıyla gözenek görünümü düzenlenir.",
-      "Nem bariyerini güçlendiren serum ve maskelerle canlılık kazandırılır.",
-      "Duyarlı ciltler için yatıştırıcı ve bariyer onarıcı protokoller uygulanır.",
-      "Mevsime göre içerik dönüşümü yapılarak ciltte adaptasyon sağlanır.",
-      "Düzenli aralıklarla bakım, uzun vadede dengeli ve aydınlık bir görünüm verir."
+    "İlk aşamada yapay zeka destekli cihazlarla detaylı cilt analizi yapılır ve uzmanlarımız kişiye özel bakım protokolleri oluşturur.",
+    "Temizleme, peeling ve komedon yönetimi aşamalarıyla gözenek görünümü düzenlenir.",
+    "Nem bariyerini güçlendiren serum ve maskelerle cilde canlılık kazandırılır.",
+    "Hassas ciltler için yatıştırıcı ve bariyer onarıcı özel uygulamalar uygulanır.",
+    "Mevsimsel ihtiyaçlara göre içerik dönüşümü yapılarak cilt adaptasyonu sağlanır.",
+    "Düzenli aralıklarla yapılan bakımlar, uzun vadede dengeli, sağlıklı ve aydınlık bir görünüm verir.",
     ],
   },
   {
