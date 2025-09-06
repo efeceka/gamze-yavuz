@@ -7,29 +7,40 @@ import { useState } from "react";
 const cinzel = Cinzel({ subsets: ["latin"], weight: ["400","500","600","700"] });
 
 export default function ContactPage() {
-  const [sending, setSending] = useState(false);
+ const [sending, setSending] = useState(false);
+const WHATSAPP_NUMBER = "905011438080";
 
-  async function handleSubmit(e) {
-    e.preventDefault();
-    setSending(true);
-    try {
-      // Burada form verisini bir endpoint'e POST edebilirsin:
-      // await fetch("/api/contact", { method: "POST", body: new FormData(e.currentTarget) })
-      alert("Mesajınız alındı. En kısa sürede dönüş sağlayacağız.");
-      e.currentTarget.reset();
-    } catch (err) {
-      alert("Bir hata oluştu. Lütfen tekrar deneyin.");
-    } finally {
-      setSending(false);
-    }
-  }
+async function handleSubmit(e) {
+  e.preventDefault();
+  setSending(true);
+
+  const formData = new FormData(e.currentTarget);
+  const firstName = formData.get("firstName");
+  const lastName  = formData.get("lastName");
+  const phone     = formData.get("phone");
+  const service   = formData.get("service");
+  const message   = formData.get("message");
+
+  // WhatsApp mesaj içeriği
+  const text = `📩 İletişim Formu
+👤 İsim: ${firstName} ${lastName}
+📞 Telefon: ${phone}
+💆‍♀️ Hizmet: ${service || "-"}
+📝 Mesaj: ${message || "-"}`;
+
+  const wa = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+  window.open(wa, "_blank");
+
+  setSending(false);
+  e.currentTarget.reset();
+}
 
   return (
     <main className="bg-white">
       {/* HERO (yarım) */}
       <section className="relative h-[50vh] min-h-[320px] w-full overflow-hidden">
         <Image
-          src="/images/anasayfa/hizmetlerimiz/gamzeyvz.jpg" // değiştirilebilir
+          src="/images/anasayfa/hizmetlerimiz/gamzeyavuz.png" // değiştirilebilir
           alt="İletişim"
           fill
           priority
@@ -89,29 +100,52 @@ export default function ContactPage() {
           </div>
         </div>
 
-        {/* E-Posta */}
+        {/* Telefon */}
         <div className="flex items-start gap-3">
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="w-6 h-6 text-amber-500 flex-shrink-0"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-    strokeWidth="2"
-  >
-    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-    <path d="M22 6 12 13 2 6" />
-  </svg>
-  <div>
-    <div className="text-neutral-500 text-sm">E-Posta</div>
-    <a
-      href="mailto:info@gamzeyavuzbeauty.com"
-      className="text-lg font-medium hover:text-neutral-900 transition"
-    >
-      info@gamzeyavuzbeauty.com
-    </a>
-  </div>
-</div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-6 h-6 text-amber-500 flex-shrink-0"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.09 6.18 2 2 0 0 1 4.11 4h3a2 2 0 0 1 2 1.72c.12.81.37 1.6.72 2.34a2 2 0 0 1-.45 2.18l-1.27 1.27a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.18-.45c.74.35 1.53.6 2.34.72a2 2 0 0 1 1.72 2z" />
+          </svg>
+          <div>
+            <div className="text-neutral-500 text-sm">Telefon</div>
+            <a
+              href="tel:05300000000"
+              className="text-lg font-medium hover:text-neutral-900 transition"
+            >
+              0530 000 00 00
+            </a>
+          </div>
+        </div>
+
+        {/* Telefon */}
+        <div className="flex items-start gap-3">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-6 h-6 text-amber-500 flex-shrink-0"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.09 6.18 2 2 0 0 1 4.11 4h3a2 2 0 0 1 2 1.72c.12.81.37 1.6.72 2.34a2 2 0 0 1-.45 2.18l-1.27 1.27a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.18-.45c.74.35 1.53.6 2.34.72a2 2 0 0 1 1.72 2z" />
+          </svg>
+          <div>
+            <div className="text-neutral-500 text-sm">Telefon</div>
+            <a
+              href="tel:05300000000"
+              className="text-lg font-medium hover:text-neutral-900 transition"
+            >
+              0530 000 00 00
+            </a>
+          </div>
+        </div>
+        
 
         {/* Adres */}
         <div className="flex items-start gap-3">
@@ -137,7 +171,7 @@ export default function ContactPage() {
         {/* Sosyal medya */}
         <div className="pt-2 flex items-center gap-3">
           <a
-            href="https://wa.me/905300182959"
+            href="https://wa.me/905011438080"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center rounded-lg bg-emerald-500 px-4 py-2 text-white font-medium hover:bg-emerald-600 transition"
@@ -145,7 +179,7 @@ export default function ContactPage() {
             WhatsApp
           </a>
           <a
-            href="https://instagram.com/kullaniciadiniz"
+            href="https://www.instagram.com/gamzeyavuzbeautyvann/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center rounded-lg bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 px-4 py-2 text-white font-medium hover:opacity-90 transition"
@@ -231,12 +265,12 @@ export default function ContactPage() {
               </div>
 
               <button
-                type="submit"
-                disabled={sending}
-                className="inline-flex items-center rounded-xl bg-neutral-900 px-6 py-3 text-white font-semibold hover:bg-neutral-800 transition disabled:opacity-60"
-              >
-                {sending ? "Gönderiliyor…" : "Gönder"}
-              </button>
+            type="submit"
+            disabled={sending}
+            className="inline-flex items-center rounded-xl bg-neutral-900 px-6 py-3 text-white font-semibold hover:bg-neutral-800 transition disabled:opacity-60"
+            >
+            {sending ? "Gönderiliyor…" : "WhatsApp’tan Gönder"}
+            </button>
             </form>
           </div>
         </div>

@@ -14,7 +14,7 @@ export default function ServicesListPage() {
       {/* Hero */}
       <section className="relative h-[70vh] min-h-[280px] w-full overflow-hidden">
         <Image
-          src="/images/anasayfa/hizmetlerimiz/gamzeyvz.jpg"
+          src="/images/anasayfa/hizmetlerimiz/gamzeyavuz.png"
           alt="Hizmetlerimiz"
           fill
           priority

@@ -9,7 +9,7 @@ export default function HakkimizdaPage() {
       {/* HERO */}
       <section className="relative h-[50vh] min-h-[320px] w-full overflow-hidden">
         <Image
-          src="/images/anasayfa/about-hero.jpg" // 📌 istediğin hero görseli
+          src="/images/anasayfa/hizmetlerimiz/gamzeyavuz.png" // 📌 istediğin hero görseli
           alt="Hakkımızda"
           fill
           priority

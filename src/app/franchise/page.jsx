@@ -11,23 +11,39 @@ export default function FranchisePage() {
   async function handleSubmit(e) {
     e.preventDefault();
     setSending(true);
-    try {
-      // backend veya API endpoint bağlanabilir
-      alert("Başvurunuz alındı. En kısa sürede sizinle iletişime geçeceğiz.");
-      e.currentTarget.reset();
-    } catch (err) {
-      alert("Bir hata oluştu, lütfen tekrar deneyin.");
-    } finally {
-      setSending(false);
-    }
+
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get("name");
+    const phone = formData.get("phone");
+    const city = formData.get("city");
+    const budget = formData.get("budget");
+    const message = formData.get("message");
+
+    // WhatsApp mesajı
+    const text = `📩 Franchise Başvuru
+👤 İsim: ${name}
+📞 Telefon: ${phone}
+📍 İl: ${city}
+💰 Bütçe: ${budget}
+📝 Mesaj: ${message || "-"}`;
+
+    // WhatsApp linki
+    const whatsappUrl = `https://wa.me/905011438080?text=${encodeURIComponent(text)}`;
+
+    // Yönlendirme
+    window.open(whatsappUrl, "_blank");
+
+    setSending(false);
+    e.currentTarget.reset();
   }
+
 
   return (
     <main className="bg-white">
       {/* HERO */}
       <section className="relative h-[50vh] min-h-[320px] w-full overflow-hidden">
         <Image
-          src="/images/anasayfa/hizmetlerimiz/gamzeyvz.jpg" // istediğin görsel
+          src="/images/anasayfa/hizmetlerimiz/gamzeyavuz.png" // istediğin görsel
           alt="Franchise"
           fill
           priority
@@ -120,96 +136,90 @@ export default function FranchisePage() {
         </div>
       </section>
 
-      {/* BAŞVURU FORMU */}
-      <section className="relative mx-auto max-w-[1200px] px-6 py-12 md:py-16 overflow-hidden rounded-2xl my-15">
-        {/* Arka plan görsel */}
+       {/* BAŞVURU FORMU */}
+      <section className="relative mx-auto max-w-[1200px] px-6 py-12 md:py-16 overflow-hidden md:rounded-2xl my-15">
         <Image
-            src="/images/anasayfa/hizmetlerimiz/form.jpg"
-            alt="Franchise Başvuru"
-            fill
-            className="object-cover"
+          src="/images/anasayfa/hizmetlerimiz/form.jpg"
+          alt="Franchise Başvuru"
+          fill
+          className="object-cover"
         />
-        {/* Overlay */}
         <div className="absolute inset-0 bg-black/40" />
 
-        {/* İçerik */}
         <div className="relative z-10">
-            <h2 className={`text-2xl md:text-3xl font-bold text-center text-white ${cinzel.className}`}>
+          <h2
+            className={`text-2xl md:text-3xl font-bold text-center text-white ${cinzel.className}`}
+          >
             Franchise Başvuru Formu
-            </h2>
+          </h2>
 
-            <form onSubmit={handleSubmit} className="mt-8 max-w-2xl mx-auto space-y-4">
+          <form
+            onSubmit={handleSubmit}
+            className="mt-8 max-w-2xl mx-auto space-y-4"
+          >
             <div className="grid gap-4 md:grid-cols-2">
-                <div>
+              <div>
                 <label className="block text-sm text-white mb-1">İsim Soyisim</label>
                 <input
-                    type="text"
-                    name="name"
-                    required
-                    className="w-full rounded-lg border border-neutral-300 bg-white px-3 py-2 text-neutral-900 placeholder-neutral-500 shadow-sm outline-none focus:ring-2 focus:ring-amber-400"
-                    placeholder="Ad Soyad"
+                  type="text"
+                  name="name"
+                  required
+                  className="w-full rounded-lg border border-neutral-300 bg-white px-3 py-2 text-neutral-900"
                 />
-                </div>
-                <div>
+              </div>
+              <div>
                 <label className="block text-sm text-white mb-1">Telefon</label>
                 <input
-                    type="tel"
-                    name="phone"
-                    inputMode="tel"
-                    pattern="^[0-9+\\s()-]{6,}$"
-                    required
-                    className="w-full rounded-lg border border-neutral-300 bg-white px-3 py-2 text-neutral-900 placeholder-neutral-500 shadow-sm outline-none focus:ring-2 focus:ring-amber-400"
-                    placeholder="05xx xxx xx xx"
+                  type="tel"
+                  name="phone"
+                  required
+                  className="w-full rounded-lg border border-neutral-300 bg-white px-3 py-2 text-neutral-900"
                 />
-                </div>
+              </div>
             </div>
 
             <div className="grid gap-4 md:grid-cols-2">
-                <div>
+              <div>
                 <label className="block text-sm text-white mb-1">Talep Edilen İl</label>
                 <input
-                    type="text"
-                    name="city"
-                    required
-                    className="w-full rounded-lg border border-neutral-300 bg-white px-3 py-2 text-neutral-900 placeholder-neutral-500 shadow-sm outline-none focus:ring-2 focus:ring-amber-400"
-                    placeholder="Örn. İstanbul"
+                  type="text"
+                  name="city"
+                  required
+                  className="w-full rounded-lg border border-neutral-300 bg-white px-3 py-2 text-neutral-900"
                 />
-                </div>
-                <div>
+              </div>
+              <div>
                 <label className="block text-sm text-white mb-1">Ortalama Bütçe</label>
                 <input
-                    type="text"
-                    name="budget"
-                    required
-                    className="w-full rounded-lg border border-neutral-300 bg-white px-3 py-2 text-neutral-900 placeholder-neutral-500 shadow-sm outline-none focus:ring-2 focus:ring-amber-400"
-                    placeholder="Örn. 1.000.000 TL"
+                  type="text"
+                  name="budget"
+                  required
+                  className="w-full rounded-lg border border-neutral-300 bg-white px-3 py-2 text-neutral-900"
                 />
-                </div>
+              </div>
             </div>
 
             <div>
-                <label className="block text-sm text-white mb-1">Mesaj</label>
-                <textarea
+              <label className="block text-sm text-white mb-1">Mesaj</label>
+              <textarea
                 name="message"
                 rows={5}
-                className="w-full rounded-lg border border-neutral-300 bg-white px-3 py-2 text-neutral-900 placeholder-neutral-500 shadow-sm outline-none focus:ring-2 focus:ring-amber-400"
-                placeholder="Kısaca kendinizi ve planınızı anlatabilirsiniz."
-                />
+                className="w-full rounded-lg border border-neutral-300 bg-white px-3 py-2 text-neutral-900"
+              />
             </div>
 
-            {/* Buton ortalı */}
             <div className="flex justify-center">
-                <button
+              <button
                 type="submit"
                 disabled={sending}
                 className="inline-flex items-center rounded-xl bg-amber-500 px-6 py-3 text-white font-semibold hover:bg-amber-600 transition disabled:opacity-60"
-                >
-                {sending ? "Gönderiliyor…" : "Başvuruyu Gönder"}
-                </button>
+              >
+                {sending ? "Gönderiliyor…" : "Başvuruyu WhatsApp'tan Gönder"}
+              </button>
             </div>
-            </form>
+          </form>
         </div>
-        </section>
+      </section>
     </main>
   );
 }

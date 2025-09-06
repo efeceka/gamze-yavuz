@@ -16,7 +16,7 @@ export default function MisyonVizyonPage() {
       {/* HERO (yarım) */}
       <section className="relative h-[50vh] min-h-[320px] w-full overflow-hidden">
         <Image
-          src="/images/anasayfa/mission-vision-hero.jpg" // değiştirilebilir
+          src="/images/anasayfa/hizmetlerimiz/gamzeyavuz.png"  // değiştirilebilir
           alt="Misyon & Vizyon"
           fill
           priority
@@ -54,6 +54,16 @@ export default function MisyonVizyonPage() {
               Misyon & Vizyon
             </h2>
 
+            {/* Misyon */}
+            <div className="mt-6">
+              <h3 className="text-xl font-semibold text-neutral-800">Misyonumuz</h3>
+              <p className="mt-2 text-neutral-700 leading-relaxed text-lg">
+                Misyonumuz Gamze Yavuz Güzellik Merkezi olarak en son teknikleri ve
+                yenilikleri kullanarak her müşterimizin kendini özel hissettmesini
+                ve en iyi versiyonunu ortaya çıkarmasını sağlamaktır.
+              </p>
+            </div>
+
             {/* Vizyon */}
             <div className="mt-6">
               <h3 className="text-xl font-semibold text-neutral-800">Vizyonumuz</h3>
@@ -65,25 +75,17 @@ export default function MisyonVizyonPage() {
               </p>
             </div>
 
-            {/* Misyon */}
-            <div className="mt-6">
-              <h3 className="text-xl font-semibold text-neutral-800">Misyonumuz</h3>
-              <p className="mt-2 text-neutral-700 leading-relaxed text-lg">
-                Misyonumuz Gamze Yavuz Güzellik Merkezi olarak en son teknikleri ve
-                yenilikleri kullanarak her müşterimizin kendini özel hissettmesini
-                ve en iyi versiyonunu ortaya çıkarmasını sağlamaktır.
-              </p>
-            </div>
+            
           </div>
 
           {/* Sağ: Görsel */}
           <div className="flex justify-center">
             <Image
-              src="/images/anasayfa/mission-vision.jpg" // değiştirilebilir
+              src="/images/anasayfa/hizmetlerimiz/misyon-vizyon.webp" // değiştirilebilir
               alt="Misyon & Vizyon - Gamze Yavuz Beauty"
               width={900}
               height={700}
-              className="w-full max-w-[420px] rounded-xl object-cover shadow-md"
+              className="w-full max-w-[500px] rounded-xl object-cover shadow-md"
             />
           </div>
         </div>
