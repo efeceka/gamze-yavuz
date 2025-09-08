@@ -48,7 +48,7 @@ export default async function ServiceDetail({ params }) {
         <div className="relative z-10 mx-auto flex h-full max-w-[1200px] items-end px-6 pb-10">
           <div>
             <span
-              className={`block md:text-base uppercase tracking-[0.2em] text-amber-400 font-light ${cinzel.className}`}
+              className={`block md:text-base uppercase tracking-[0.2em] text-amber-400 font-light`}
             >
               Gamze Yavuz Beauty
             </span>

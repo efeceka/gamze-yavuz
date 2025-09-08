@@ -178,25 +178,28 @@ export default function FranchisePage() {
               </div>
             </div>
 
-            <div className="grid gap-4 md:grid-cols-2">
-              <div>
+           <div className="grid gap-4 md:grid-cols-2">
+            <div>
                 <label className="block text-sm text-white mb-1">Talep Edilen İl</label>
                 <input
-                  type="text"
-                  name="city"
-                  required
-                  className="w-full rounded-lg border border-neutral-300 bg-white px-3 py-2 text-neutral-900"
+                type="text"
+                name="city"
+                required
+                className="w-full rounded-lg border border-neutral-300 bg-white px-3 py-2 text-neutral-900"
                 />
-              </div>
-              <div>
+            </div>
+            <div>
                 <label className="block text-sm text-white mb-1">Ortalama Bütçe</label>
-                <input
-                  type="text"
-                  name="budget"
-                  required
-                  className="w-full rounded-lg border border-neutral-300 bg-white px-3 py-2 text-neutral-900"
-                />
-              </div>
+                <select
+                name="budget"
+                required
+                className="w-full rounded-lg border border-neutral-300 bg-white px-3 py-2 text-neutral-900"
+                >
+                <option value="">Seçiniz</option>
+                <option value="5-10">5.000.000 TL - 10.000.000 TL</option>
+                <option value="10-20">10.000.000 TL - 20.000.000 TL</option>
+                </select>
+            </div>
             </div>
 
             <div>

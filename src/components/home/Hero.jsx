@@ -44,11 +44,14 @@ export default function HeroVideo() {
           priority
         />
         {/* Başlık */}
-        <h1
-          className={`${cinzel.className} mt-6 text-3xl md:text-5xl font-bold text-white drop-shadow`}
-        >
-          Gamze Yavuz Beauty
-        </h1>
+       <Image
+        src="/images/logos/hero.png" // veya brand.png
+        alt="Gamze Yavuz Beauty Logo"
+        width={400} // istediğin boyut
+        height={100}
+        className="mt-6 h-auto w-[280px] md:w-[400px]"
+        priority
+        />
 
         {/* Slogan */}
         <p className="mt-4 max-w-2xl text-base md:text-lg text-white/90 leading-relaxed">

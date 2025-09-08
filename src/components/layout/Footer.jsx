@@ -69,7 +69,7 @@ export default function Footer({
                 </a>
               </li>
               <li className="text-neutral-400">{address}</li>
-              <li className="text-neutral-400">Hafta içi: 10:00–20:00 • Cumartesi: 10:00–18:00</li>
+              <li className="text-neutral-400">Çalışma Saatlerimiz 10.00 - 19.00 , Pazar Kapalıyız.</li>
             </ul>
             <div className="mt-4">
               <Link

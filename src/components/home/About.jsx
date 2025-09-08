@@ -1,3 +1,5 @@
+"use client";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 export default function AboutSection({
@@ -9,9 +11,21 @@ export default function AboutSection({
   ],
   phone = "0530 000 00 00",
   ctaHref = "/iletisim",
-  imageSrc = "/images/anasayfa/about.jpg", // arka planı şeffaf PNG önerilir
+
+  // 🔽 Video/Görsel alanı için yeni props
+  videoSrc = "/videos/hakkimizda.mp4",
+  poster = "/images/anasayfa/about.jpg",
+  fallbackImage = "/images/anasayfa/about.jpg",
   imageAlt = "Uygulama sonrası doğal ışıltı",
 }) {
+  const videoRef = useRef(null);
+  const [reducedMotion, setReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(mq.matches);
+  }, []);
+
   return (
     <section id="hakkimizda" className="bg-white">
       <div className="mx-auto max-w-[1200px] px-6 py-20 md:py-28">
@@ -36,14 +50,7 @@ export default function AboutSection({
             {/* Rezervasyon bloğu */}
             <div className="mt-8 md:mt-10 flex items-start gap-4">
               <div className="flex h-12 w-12 items-center justify-center rounded-full ring-1 ring-neutral-300 text-amber-600">
-                {/* phone icon */}
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  aria-hidden
-                >
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden>
                   <path
                     d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 4.08 6.18 2 2 0 0 1 6.1 4h3a2 2 0 0 1 2 1.72c.12.81.37 1.6.72 2.34a2 2 0 0 1-.45 2.18L10.1 11.5a16 16 0 0 0 6.4 6.4l1.26-1.26a2 2 0 0 1 2.18-.45c.74.35 1.53.6 2.34.72A2 2 0 0 1 22 16.92Z"
                     stroke="currentColor"
@@ -68,14 +75,7 @@ export default function AboutSection({
                   className="mt-4 inline-flex items-center text-amber-700 hover:text-amber-800 font-medium"
                 >
                   Bize ulaşın
-                  <svg
-                    className="ml-2"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    aria-hidden
-                  >
+                  <svg className="ml-2" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
                     <path
                       d="M5 12h14M13 5l7 7-7 7"
                       stroke="currentColor"
@@ -89,17 +89,31 @@ export default function AboutSection({
             </div>
           </div>
 
-          {/* Sağ: görsel (şeffaf PNG ile kesim efekti) */}
+          {/* Sağ: video (görsel fallback) */}
           <div className="relative">
-            <div className="relative mx-auto w-full max-w-[400px]">
-              <Image
-                src={imageSrc}
-                alt={imageAlt}
-                width={800}
-                height={900}
-                priority={false}
-                className="h-auto w-full object-contain"
-              />
+            <div className="relative mx-auto w-full max-w-[300px]">
+              {!reducedMotion && videoSrc ? (
+                <video
+                  ref={videoRef}
+                  className="h-auto w-full rounded-xl object-cover shadow-md"
+                  src={videoSrc}
+                  poster={poster}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="auto"
+                />
+              ) : (
+                <Image
+                  src={fallbackImage}
+                  alt={imageAlt}
+                  width={800}
+                  height={900}
+                  priority={false}
+                  className="h-auto w-full rounded-xl object-cover shadow-md"
+                />
+              )}
             </div>
           </div>
         </div>

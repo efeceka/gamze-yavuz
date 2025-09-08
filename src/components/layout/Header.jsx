@@ -72,11 +72,25 @@ export default function Header() {
             className="w-14 h-14"
             priority
           />
-          <div className={`leading-tight flex flex-col items-center ${cinzel.className}`}>
-            <div className={`font-semibold tracking-wide text-xl ${baseText}`}>Gamze Yavuz</div>
-            {/* Beauty tam ortada ve bir alt satırda */}
-            <div className={`${baseText} opacity-90 font-semibold text-m -mt-0.5 text-center`}>Beauty</div>
-          </div>
+          <div className="leading-tight flex flex-col items-center">
+        {/* Logo */}
+        <Image
+            src="/images/logos/hero.png"
+            alt="Gamze Yavuz Logo"
+            width={200}
+            height={200}
+            className="w-24 md:w-32 object-contain"
+            priority
+        />
+
+        {/* Beauty yazısı */}
+        <div
+        className={`${cinzel.className} opacity-90 font-semibold text-sm md:text-base mt-2 text-center 
+            bg-gradient-to-r from-[#9d7f58] to-[#e9e3ae] bg-clip-text text-transparent`}
+        >
+        Beauty
+        </div>
+        </div>
         </Link>
 
         {/* Desktop Nav */}
