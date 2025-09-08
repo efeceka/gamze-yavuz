@@ -79,7 +79,7 @@ export default function Header() {
             alt="Gamze Yavuz Logo"
             width={200}
             height={200}
-            className="w-24 md:w-32 object-contain"
+            className="w-30 md:w-40 object-contain"
             priority
         />
 
