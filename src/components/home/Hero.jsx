@@ -6,7 +6,7 @@ import Image from "next/image";
 const cinzel = Cinzel({ subsets: ["latin"], weight: ["400","500","600","700"] });
 
 export default function HeroVideo() {
-  const src = "/videos/hero.webm";
+  const src = "/videos/hero.MOV";
   const videoRef = useRef(null);
 
   useEffect(() => {
