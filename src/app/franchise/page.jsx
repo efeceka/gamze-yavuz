@@ -8,34 +8,37 @@ const cinzel = Cinzel({ subsets: ["latin"], weight: ["400","500","600","700"] })
 export default function FranchisePage() {
   const [sending, setSending] = useState(false);
 
-  async function handleSubmit(e) {
-    e.preventDefault();
-    setSending(true);
+ async function handleSubmit(e) {
+  e.preventDefault();
+  setSending(true);
 
-    const formData = new FormData(e.currentTarget);
-    const name = formData.get("name");
-    const phone = formData.get("phone");
-    const city = formData.get("city");
-    const budget = formData.get("budget");
-    const message = formData.get("message");
+  const formData = new FormData(e.currentTarget);
+  const name = formData.get("name");
+  const phone = formData.get("phone");
+  const city = formData.get("city");
+  const budget = formData.get("budget"); // "5-10" veya "10-20"
+  const message = formData.get("message");
 
-    // WhatsApp mesajı
-    const text = `📩 Franchise Başvuru
+  // Değer → Etiket eşlemesi
+  const budgetMap = {
+    "5-10": "5.000.000 TL - 10.000.000 TL",
+    "10-20": "10.000.000 TL - 20.000.000 TL",
+  };
+  const budgetText = budgetMap[budget] || budget;
+
+  const text = `📩 Franchise Başvuru
 👤 İsim: ${name}
 📞 Telefon: ${phone}
 📍 İl: ${city}
-💰 Bütçe: ${budget}
+💰 Bütçe: ${budgetText}
 📝 Mesaj: ${message || "-"}`;
 
-    // WhatsApp linki
-    const whatsappUrl = `https://wa.me/905011438080?text=${encodeURIComponent(text)}`;
+  const whatsappUrl = `https://wa.me/905011438080?text=${encodeURIComponent(text)}`;
+  window.open(whatsappUrl, "_blank");
 
-    // Yönlendirme
-    window.open(whatsappUrl, "_blank");
-
-    setSending(false);
-    e.currentTarget.reset();
-  }
+  setSending(false);
+  e.currentTarget.reset();
+}
 
 
   return (
