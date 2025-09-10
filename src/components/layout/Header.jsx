@@ -29,14 +29,7 @@ const nav = [
       })),
     ],
   },
-//   {
-//     label: "CİHAZLAR",
-//     items: [
-//       { label: "Lazer Sistemleri", href: "/cihazlar/lazer" },
-//       { label: "Cilt Analiz", href: "/cihazlar/cilt-analiz" },
-//       { label: "Radyofrekans", href: "/cihazlar/rf" },
-//     ],
-//   },
+  { label: "GALERİ", href: "/galeri" },
   { label: "FRANCHISE", href: "/franchise" },
   { label: "İLETİŞİM", href: "/iletisim" },
 ];

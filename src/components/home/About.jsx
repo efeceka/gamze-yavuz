@@ -1,6 +1,6 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { useMemo } from "react";
 
 export default function AboutSection({
   title = "Hakkımızda",
@@ -12,19 +12,16 @@ export default function AboutSection({
   phone = "0530 000 00 00",
   ctaHref = "/iletisim",
 
-  // 🔽 Video/Görsel alanı için yeni props
-  videoSrc = "/videos/hakkimizda.mp4",
-  poster = "/images/anasayfa/about.jpg",
-  fallbackImage = "/images/anasayfa/about.jpg",
+  // 🔽 Görsel
+  imageSrc = "/images/anasayfa/about.jpeg",
   imageAlt = "Uygulama sonrası doğal ışıltı",
+  // Şeffaf PNG’ler için object-contain tercih edebilirsin
+  contain = true,
 }) {
-  const videoRef = useRef(null);
-  const [reducedMotion, setReducedMotion] = useState(false);
-
-  useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReducedMotion(mq.matches);
-  }, []);
+  const objectClass = useMemo(
+    () => (contain ? "object-contain" : "object-cover"),
+    [contain]
+  );
 
   return (
     <section id="hakkimizda" className="bg-white">
@@ -89,31 +86,17 @@ export default function AboutSection({
             </div>
           </div>
 
-          {/* Sağ: video (görsel fallback) */}
+          {/* Sağ: görsel */}
           <div className="relative">
-            <div className="relative mx-auto w-full max-w-[300px]">
-              {!reducedMotion && videoSrc ? (
-                <video
-                  ref={videoRef}
-                  className="h-auto w-full rounded-xl object-cover shadow-md"
-                  src={videoSrc}
-                  poster={poster}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="auto"
-                />
-              ) : (
-                <Image
-                  src={fallbackImage}
-                  alt={imageAlt}
-                  width={800}
-                  height={900}
-                  priority={false}
-                  className="h-auto w-full rounded-xl object-cover shadow-md"
-                />
-              )}
+            <div className="relative mx-auto w-full max-w-[360px] md:max-w-[420px]">
+              <Image
+                src={imageSrc}
+                alt={imageAlt}
+                width={900}
+                height={1000}
+                priority={false}
+                className={`h-auto w-full rounded-xl ${objectClass} shadow-md`}
+              />
             </div>
           </div>
         </div>
