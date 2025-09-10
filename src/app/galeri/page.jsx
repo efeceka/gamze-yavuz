@@ -65,7 +65,7 @@ export default function GalleryPage() {
       {/* HERO (yarım) */}
       <section className="relative h-[50vh] min-h-[320px] w-full overflow-hidden">
         <Image
-          src="/images/anasayfa/hizmetlerimiz/gamzeyvz.jpg"
+          src="/images/anasayfa/hizmetlerimiz/gamzeyavuz.png"
           alt="Galeri"
           fill
           priority

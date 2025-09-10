@@ -15,7 +15,7 @@ const nav = [
   {
     label: "KURUMSAL",
     items: [
-      { label: "Hakkımızda", href: "/hakkimizda" },
+      { label: "Hakkımızda", href: "/hakkımızda" },
       { label: "Misyon & Vizyon", href: "/misyon-vizyon" },
     ],
   },
@@ -54,9 +54,9 @@ export default function Header() {
 
   return (
     <header className={`fixed inset-x-0 top-0 z-50 py-2 ${headerBg} transition-colors duration-300`}>
-      <div className="mx-auto max-w-[1200px] px-4 lg:px-6 h-16 lg:h-20 flex items-center justify-between">
-        {/* Logo + Marka */}
-        <Link href="/" className="flex items-center gap-3">
+      <div className="mx-auto max-w-[1200px] px-4 lg:px-6 h-16 lg:h-20 flex items-center justify-between relative">
+        {/* Sol küçük logo (her zaman) + Masaüstü hero+Beauty */}
+        <Link href="/" className="flex items-center gap-3 z-20">
           <Image
             src="/images/logos/logo.png"
             width={56}
@@ -65,26 +65,45 @@ export default function Header() {
             className="w-14 h-14"
             priority
           />
-          <div className="leading-tight flex flex-col items-center">
-        {/* Logo */}
-        <Image
-            src="/images/logos/hero.png"
-            alt="Gamze Yavuz Logo"
-            width={200}
-            height={200}
-            className="w-30 md:w-40 object-contain"
-            priority
-        />
 
-        {/* Beauty yazısı */}
-        <div
-        className={`${cinzel.className} opacity-90 font-semibold text-sm md:text-base mt-2 text-center 
-            bg-gradient-to-r from-[#9d7f58] to-[#e9e3ae] bg-clip-text text-transparent`}
-        >
-        Beauty
-        </div>
-        </div>
+          {/* hero.png + Beauty → sadece MASAÜSTÜNDE */}
+          <div className="leading-tight flex-col items-center hidden lg:flex">
+            <Image
+              src="/images/logos/hero.png"
+              alt="Gamze Yavuz Logo"
+              width={200}
+              height={200}
+              className="w-30 md:w-40 object-contain"
+              priority
+            />
+            <div
+              className={`${cinzel.className} opacity-90 font-semibold text-sm md:text-base mt-2 text-center
+                bg-gradient-to-r from-[#9d7f58] to-[#e9e3ae] bg-clip-text text-transparent`}
+            >
+              Beauty
+            </div>
+          </div>
         </Link>
+
+        {/* ORTADAKİ hero.png + Beauty → sadece MOBİLDE */}
+        <div className="absolute inset-0 lg:hidden z-10 pointer-events-none flex items-center justify-center">
+          <Link href="/" className="pointer-events-auto flex flex-col items-center">
+            <Image
+              src="/images/logos/hero.png"
+              alt="Gamze Yavuz Logo"
+              width={160}
+              height={160}
+              className="h-3 w-auto object-contain"
+              priority
+            />
+            <div
+              className={`${cinzel.className} opacity-90 font-semibold text-xs mt-1 text-center
+                bg-gradient-to-r from-[#9d7f58] to-[#e9e3ae] bg-clip-text text-transparent`}
+            >
+              Beauty
+            </div>
+          </Link>
+        </div>
 
         {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center gap-7">
@@ -132,7 +151,7 @@ export default function Header() {
 
         {/* Mobil menü butonu */}
         <button
-          className={`lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-md ${baseText}`}
+          className={`lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-md ${baseText} z-20`}
           onClick={() => setMobileOpen((s) => !s)}
           aria-label="Menüyü aç/kapat"
         >
