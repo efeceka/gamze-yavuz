@@ -17,7 +17,7 @@ const rawItems = [
   { id: "vid-01", type: "video", src: "/videos/hakkimizda.mp4", poster: "/images/galeri/gamzeyvz.jpg", title: "Salonumuz" },
   { id: "vid-02", type: "video", src: "/videos/yosunp.mp4", poster: "/images/galeri/yosun.png", title: "Yosun Peeling" },
   { id: "vid-03", type: "video", src: "/videos/kirpikk.mp4", poster: "/images/galeri/kirpik.png", title: "Kirpik İşlemi" },
-  { id: "vid-04", type: "video", src: "/videos/gshape.mp4", poster: "/images/galeri/g-shape.jpg", title: "Zayıflama" },
+  { id: "vid-04", type: "video", src: "/videos/gshape.mp4", poster: "/images/galeri/gshape.jpg", title: "Zayıflama" },
 ];
 
 export default function GalleryPage() {
