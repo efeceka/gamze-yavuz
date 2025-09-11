@@ -15,7 +15,7 @@ const nav = [
   {
     label: "KURUMSAL",
     items: [
-      { label: "Hakkımızda", href: "/hakkımızda" },
+      { label: "Hakkımızda", href: "/hakkimizda" },
       { label: "Misyon & Vizyon", href: "/misyon-vizyon" },
     ],
   },
